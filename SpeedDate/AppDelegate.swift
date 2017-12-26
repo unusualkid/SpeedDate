@@ -5,14 +5,16 @@
 //  Created by Kenneth Chen on 12/19/17.
 //  Copyright © 2017 Cotery. All rights reserved.
 //
+
 import UIKit
+import CoreData
 import FacebookCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    let stack = CoreDataStack(modelName: "Model")!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
