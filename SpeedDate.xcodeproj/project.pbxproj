@@ -20,6 +20,7 @@
 		3CB7D8571FF2400E0016DF22 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7D8561FF2400E0016DF22 /* CoreDataStack.swift */; };
 		3CB7D8761FF24ECC0016DF22 /* Me+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7D8741FF24ECB0016DF22 /* Me+CoreDataClass.swift */; };
 		3CB7D8771FF24ECC0016DF22 /* Me+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7D8751FF24ECB0016DF22 /* Me+CoreDataProperties.swift */; };
+		3CB7D87A1FF25AF90016DF22 /* FacebookConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7D8791FF25AF90016DF22 /* FacebookConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		3CB7D8561FF2400E0016DF22 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3CB7D8741FF24ECB0016DF22 /* Me+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Me+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3CB7D8751FF24ECB0016DF22 /* Me+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Me+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3CB7D8791FF25AF90016DF22 /* FacebookConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookConstants.swift; sourceTree = "<group>"; };
 		8966166A7A00B892771C1A99 /* Pods_SpeedDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeedDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEECB77D0D42015CDD845825 /* Pods-SpeedDate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedDate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeedDate/Pods-SpeedDate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,12 +135,21 @@
 		3CB7D8491FF219540016DF22 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3CB7D8781FF25AC80016DF22 /* Client */,
 				3CB7D8741FF24ECB0016DF22 /* Me+CoreDataClass.swift */,
 				3CB7D8751FF24ECB0016DF22 /* Me+CoreDataProperties.swift */,
 				3CB7D8531FF23DB90016DF22 /* Model.xcdatamodeld */,
 				3CB7D8561FF2400E0016DF22 /* CoreDataStack.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3CB7D8781FF25AC80016DF22 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				3CB7D8791FF25AF90016DF22 /* FacebookConstants.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +300,7 @@
 				3CB7D84F1FF21CEB0016DF22 /* ListViewController.swift in Sources */,
 				3CB7D84B1FF21BB00016DF22 /* SettingsViewController.swift in Sources */,
 				3CB7D8551FF23DB90016DF22 /* Model.xcdatamodeld in Sources */,
+				3CB7D87A1FF25AF90016DF22 /* FacebookConstants.swift in Sources */,
 				3CB7D8771FF24ECC0016DF22 /* Me+CoreDataProperties.swift in Sources */,
 				3CB7D8761FF24ECC0016DF22 /* Me+CoreDataClass.swift in Sources */,
 			);

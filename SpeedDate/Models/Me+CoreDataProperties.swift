@@ -17,12 +17,13 @@ extension Me {
         return NSFetchRequest<Me>(entityName: "Me")
     }
 
-    @NSManaged public var birthDate: NSDate?
-    @NSManaged public var email: String?
+    @NSManaged public var birthday: NSDate?
+    @NSManaged public var email: String
     @NSManaged public var gender: String?
     @NSManaged public var lat: Double
     @NSManaged public var lon: Double
     @NSManaged public var lookingFor: String?
     @NSManaged public var name: String?
+    @NSManaged public var id: String?
 
 }
