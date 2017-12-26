@@ -1,0 +1,6 @@
+framework module Pods_SpeedDate {
+  umbrella header "Pods-SpeedDate-umbrella.h"
+
+  export *
+  module * { export * }
+}
