@@ -17,6 +17,8 @@ class LoginViewController: UIViewController {
 
         if let accessToken = AccessToken.current {
             // User is logged in, use 'accessToken' here.
+            let controller = self.storyboard!.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+            self.present(controller, animated: true, completion: nil)
         }
     }
 
@@ -30,6 +32,8 @@ class LoginViewController: UIViewController {
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 print("Logged in!")
+                let controller = self.storyboard!.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                self.present(controller, animated: true, completion: nil)
             }
         }
     }
