@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		22763CB96F951ADC375A8109 /* Pods_SpeedDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8966166A7A00B892771C1A99 /* Pods_SpeedDate.framework */; };
 		3CB7D8341FF2145A0016DF22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7D8331FF2145A0016DF22 /* AppDelegate.swift */; };
-		3CB7D8361FF2145A0016DF22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7D8351FF2145A0016DF22 /* ViewController.swift */; };
+		3CB7D8361FF2145A0016DF22 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7D8351FF2145A0016DF22 /* LoginViewController.swift */; };
 		3CB7D8391FF2145A0016DF22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB7D8371FF2145A0016DF22 /* Main.storyboard */; };
 		3CB7D83B1FF2145A0016DF22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CB7D83A1FF2145A0016DF22 /* Assets.xcassets */; };
 		3CB7D83E1FF2145A0016DF22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB7D83C1FF2145A0016DF22 /* LaunchScreen.storyboard */; };
+		3CB7D84B1FF21BB00016DF22 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7D84A1FF21BB00016DF22 /* SettingsViewController.swift */; };
+		3CB7D84D1FF21C720016DF22 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7D84C1FF21C720016DF22 /* EventsViewController.swift */; };
+		3CB7D84F1FF21CEB0016DF22 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7D84E1FF21CEB0016DF22 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		149267D261162B9258447337 /* Pods-SpeedDate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedDate.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeedDate/Pods-SpeedDate.release.xcconfig"; sourceTree = "<group>"; };
 		3CB7D8301FF2145A0016DF22 /* SpeedDate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedDate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB7D8331FF2145A0016DF22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3CB7D8351FF2145A0016DF22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3CB7D8351FF2145A0016DF22 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3CB7D8381FF2145A0016DF22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CB7D83A1FF2145A0016DF22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CB7D83D1FF2145A0016DF22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CB7D83F1FF2145A0016DF22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CB7D84A1FF21BB00016DF22 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3CB7D84C1FF21C720016DF22 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		3CB7D84E1FF21CEB0016DF22 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		8966166A7A00B892771C1A99 /* Pods_SpeedDate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeedDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEECB77D0D42015CDD845825 /* Pods-SpeedDate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedDate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeedDate/Pods-SpeedDate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,13 +85,48 @@
 			isa = PBXGroup;
 			children = (
 				3CB7D8331FF2145A0016DF22 /* AppDelegate.swift */,
-				3CB7D8351FF2145A0016DF22 /* ViewController.swift */,
+				3CB7D8491FF219540016DF22 /* Models */,
+				3CB7D8481FF2193B0016DF22 /* Controllers */,
+				3CB7D8471FF219280016DF22 /* Assets */,
+				3CB7D8461FF2191A0016DF22 /* Supporting Files */,
+			);
+			path = SpeedDate;
+			sourceTree = "<group>";
+		};
+		3CB7D8461FF2191A0016DF22 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3CB7D83F1FF2145A0016DF22 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3CB7D8471FF219280016DF22 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
 				3CB7D8371FF2145A0016DF22 /* Main.storyboard */,
 				3CB7D83A1FF2145A0016DF22 /* Assets.xcassets */,
 				3CB7D83C1FF2145A0016DF22 /* LaunchScreen.storyboard */,
-				3CB7D83F1FF2145A0016DF22 /* Info.plist */,
 			);
-			path = SpeedDate;
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		3CB7D8481FF2193B0016DF22 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3CB7D8351FF2145A0016DF22 /* LoginViewController.swift */,
+				3CB7D84C1FF21C720016DF22 /* EventsViewController.swift */,
+				3CB7D84E1FF21CEB0016DF22 /* ListViewController.swift */,
+				3CB7D84A1FF21BB00016DF22 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3CB7D8491FF219540016DF22 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +270,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CB7D8361FF2145A0016DF22 /* ViewController.swift in Sources */,
+				3CB7D8361FF2145A0016DF22 /* LoginViewController.swift in Sources */,
+				3CB7D84D1FF21C720016DF22 /* EventsViewController.swift in Sources */,
 				3CB7D8341FF2145A0016DF22 /* AppDelegate.swift in Sources */,
+				3CB7D84F1FF21CEB0016DF22 /* ListViewController.swift in Sources */,
+				3CB7D84B1FF21BB00016DF22 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFNAAK48FE;
-				INFOPLIST_FILE = SpeedDate/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SpeedDate/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cotery.SpeedDate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -386,7 +430,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFNAAK48FE;
-				INFOPLIST_FILE = SpeedDate/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SpeedDate/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cotery.SpeedDate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
