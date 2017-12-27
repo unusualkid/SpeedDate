@@ -13,5 +13,6 @@ struct FacebookConstants {
     static let Gender = "gender"
     static let Id = "id"
     static let Birthday = "birthday"
-    
+    static let Location = "location"
+    static let Email = "email"
 }

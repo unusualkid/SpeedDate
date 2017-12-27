@@ -10,8 +10,9 @@ import UIKit
 import CoreData
 import FacebookLogin
 import FacebookCore
+import CoreLocation
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, CLLocationManagerDelegate {
 
     let delegate = UIApplication.shared.delegate as! AppDelegate
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
@@ -24,9 +25,23 @@ class LoginViewController: UIViewController {
         return frc
     }()
     
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
         if let accessToken = AccessToken.current {
             
             let controller = self.storyboard!.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
@@ -36,7 +51,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginButtonPressed(_ sender: Any) {
         let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [ .publicProfile ], viewController: self) { loginResult in
+        loginManager.logIn(readPermissions: [ .publicProfile, .userBirthday, .userLocation, .email ], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
                 print(error)
@@ -46,7 +61,9 @@ class LoginViewController: UIViewController {
                 print("Logged in!")
                 
                 let connection = GraphRequestConnection()
-                let graphrequest = GraphRequest(graphPath: "/me", parameters: ["fields": "id, name, birthday, gender, email"], accessToken: accessToken, httpMethod: .GET, apiVersion: .defaultVersion)
+                let graphrequest = GraphRequest(graphPath: "/me",
+                                                parameters: ["fields": "\(FacebookConstants.Id), \(FacebookConstants.Name), \(FacebookConstants.Birthday), \(FacebookConstants.Gender), \(FacebookConstants.Email), \(FacebookConstants.Location)"],
+                                                accessToken: accessToken, httpMethod: .GET, apiVersion: .defaultVersion)
                 
                 connection.add(graphrequest) { httpResponse, result in
                     switch result {
@@ -71,12 +88,33 @@ class LoginViewController: UIViewController {
                             return
                         }
                         
-                        // TODO: need to get private profile to read birthday
                         /* GUARD: Is "birthday" key in our response? */
                         guard let birthday = response.dictionaryValue![FacebookConstants.Birthday] as? String else {
                             print("Cannot find keys '\(FacebookConstants.Birthday)' in \(response)")
                             return
                         }
+
+                        /* GUARD: Is "location" key in our response? */
+                        guard let locationDictionary = response.dictionaryValue![FacebookConstants.Location] as? [String: AnyObject] else {
+                            print("Cannot find keys '\(FacebookConstants.Location)' in \(response)")
+                            return
+                        }
+                        
+                        guard let location = locationDictionary["name"] as? String else {
+                            print("Cannot find keys 'name' in \(locationDictionary)")
+                            return
+                        }
+                        
+                        /* GUARD: Is "email" key in our response? */
+                        guard let email = response.dictionaryValue![FacebookConstants.Email] as? String else {
+                            print("Cannot find keys '\(FacebookConstants.Email)' in \(response)")
+                            return
+                        }
+                        
+                        let me = Me(id: id, name: name, birthday: birthday, gender: gender, email: email, city: location, context: self.delegate.stack.context)
+                        
+                        print("me: \(me)")
+                        
                         
                     case .failed(let error):
                         print("Graph Request Failed: \(error)")
@@ -84,10 +122,15 @@ class LoginViewController: UIViewController {
                     
                 }
                 connection.start()
-                
-                let controller = self.storyboard!.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-                self.present(controller, animated: true, completion: nil)
+                self.performSegue(withIdentifier: "showNavigationController", sender: self)
             }
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let coordinate = manager.location?.coordinate {
+            var locValue: CLLocationCoordinate2D = coordinate
+            print("location = \(locValue.latitude) \(locValue.longitude)")
         }
     }
 }
